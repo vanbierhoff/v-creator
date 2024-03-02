@@ -3,7 +3,8 @@ import { routerStoreFactory } from '../v-creator/router/router-store/factory/rou
 import { RouterManager } from '../v-creator/router/router-manager/router-manager.ts';
 import { RouterLoader } from '../v-creator/router/router-loader/router-loader.ts';
 import { Renderer } from '../v-creator/renderer/renderer.ts';
-import APP from '../modules/app-module/app-module.ts';
+import { APP } from '../modules/app-module/app-module.ts';
+
 
 
 

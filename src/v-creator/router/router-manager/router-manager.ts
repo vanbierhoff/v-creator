@@ -1,7 +1,8 @@
 import { RouterStore } from '../router-store/router-store';
 import { RouterLoader } from '../router-loader/router-loader';
 import { VModule } from '../router-loader/models/v-module';
-import { jitBaseParser } from '../../../projects/compiler/jit-compile';
+import { jitBaseParser } from '../../compiler/jit-compile.ts';
+
 
 
 export class RouterManager {

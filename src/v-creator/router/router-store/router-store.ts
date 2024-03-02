@@ -6,11 +6,12 @@ import { RouterStoreInterface } from './models/router-store.interface';
 export class RouterStore implements RouterStoreInterface {
 
     constructor(
-        private routes: RouterModuleInterface[]
+        routes: RouterModuleInterface[]
     ) {
+        this.#modulesList = routes;
     }
 
-    #modulesList: RouterModuleInterface[] = this.routes;
+    #modulesList: RouterModuleInterface[];
 
     add(route: RouterModuleInterface): RouterModuleInterface[] {
         if (!this.#modulesList.some(moduleItem => moduleItem.path === route.path)) {

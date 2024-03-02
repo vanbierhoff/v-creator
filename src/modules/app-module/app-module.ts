@@ -1,14 +1,14 @@
-import { VModuleDecorator } from '../../app-modules/router/decorators/v-module/v-module.decorator';
+import { VModuleDecorator } from '../../v-creator/router/decorators/v-module/v-module.decorator.ts';
 
 
 @VModuleDecorator({
     path: '/',
     selector: 'app',
-    template: async () => await import('./view/app.template.html'),
+    template: async () => import('./view/app.template.html?raw'),
+    templatePath: './view/app.template.html',
     component: async () => await
         import( './app-component').then(m => m.AppComponent)
 })
-class APP {
+export class APP {
 }
 
-export default APP;

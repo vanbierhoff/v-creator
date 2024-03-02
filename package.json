@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:dev": "tsc && vite build --dev",
+    "build:dev": "tsc && vite build --mode development",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -14,6 +14,7 @@
     "vite": "^5.1.4"
   },
   "dependencies": {
-    "reflect-metadata": "^0.2.1"
+    "reflect-metadata": "^0.2.1",
+    "rxjs": "^7.8.1"
   }
 }

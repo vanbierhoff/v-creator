@@ -3,6 +3,7 @@ export interface RouterModuleInterface {
     deps?: [];
     selector: string;
     styles?: Promise<string>;
+    templatePath?: string;
 
     template?(): Promise<any>;
 

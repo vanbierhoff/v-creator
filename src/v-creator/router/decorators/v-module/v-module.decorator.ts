@@ -6,10 +6,8 @@ import { V_META } from './models/v-module-meta';
 export class VModuleStoreInstance {
 }
 
-
 export function VModuleDecorator(config: RouterModuleInterface): any {
     return (target: any, propertyKey: string, _: PropertyDescriptor): any => {
-
         return class extends target {
             constructor(...args: any[]) {
                 super(...args);

@@ -1,6 +1,6 @@
-import { V_BIND, V_META } from '../../app-modules/router/decorators/v-module/models/v-module-meta';
-import { V_MODULE_FIELDS, VModule } from '../../app-modules/router/router-loader/models/v-module';
 import { jitHostBinding } from './host-binding/jit-host-binding';
+import { VModule } from '../router/router-loader/models/v-module.ts';
+import { V_BIND, V_META } from '../router/decorators/v-module/models/v-module-meta.ts';
 
 
 export function jitBaseParser(target: VModule): VModule {

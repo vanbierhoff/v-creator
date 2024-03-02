@@ -18,7 +18,8 @@ export class RouterLoader implements RouterLoaderInterface {
 
 
     private async uploadTemplate(module: RouterModuleInterface): Promise<string> {
-        return module.template!().then(x => x.default);
+        return await module.template!().then(async x => x.default);
+
     }
 
     private async uploadComponent(module: RouterModuleInterface): Promise<any> {
