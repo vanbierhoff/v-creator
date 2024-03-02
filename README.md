@@ -2,6 +2,6 @@
 
 
 project have:  
-- base implementation Router for lazy load first module
+- basic implementation of a Router for lazy loading of the first module
 
-- @HostBinding decorator for components
+- @HostBinding decorator for components - bind values and class on "host" of component
