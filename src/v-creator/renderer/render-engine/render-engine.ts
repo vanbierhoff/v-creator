@@ -19,24 +19,24 @@ const hostBindValueChangeDetector = (
     module: VModule, binds: {
         bindings: Array<{ style: [], class: [] }>
         bindsMeta: Array<BindingInterface>
-        createdBinds: JitHostBindingInterface
+        createdBinds: JitHostBindingInterface,
+        values: any
     }) => {
     binds.bindsMeta.forEach(bind => {
         if (module[MOD_FIELDS.component].hasOwnProperty(bind.prop)) {
             // корректно создавать нечитаемые свойства
-            module[MOD_FIELDS.component][`_${bind.prop}`] = module[MOD_FIELDS.component][bind.prop];
+            binds.values[`_${bind.prop}`] = module[MOD_FIELDS.component][bind.prop];
             Object.defineProperty(module[MOD_FIELDS.component], bind.prop, {
                 set(value): boolean {
-                    module[MOD_FIELDS.component][`_${bind.prop}`] = value;
+                    binds.values[`_${bind.prop}`] = value;
                     const bindKey = bind.bind.split('.')[0];
-                    const result = binds.bindings[bindKey].reduce(
+                    binds.createdBinds[bindKey] = binds.bindings[bindKey].reduce(
                         (accumulator, bind: any) => {
                             const bindType = bind.bind.split('.');
                             return getBindString(bindType[0], bindType, accumulator, module[MOD_FIELDS.component], bind.prop);
                         },
                         `${bindKey}="`
                     );
-                    binds.createdBinds[bindKey] = result;
                     // корректные абстракции для создания и рендера шаблонов
                     // сделать template функцеий с передчаей байндов и аругоментов как вариант
                     module[MOD_FIELDS.template] =
@@ -48,7 +48,7 @@ const hostBindValueChangeDetector = (
                     return true;
                 },
                 get(): any {
-                    return module[MOD_FIELDS.component][`_${bind.prop}`];
+                    return binds.values[`_${bind.prop}`];
                 }
             });
             console.log(module[MOD_FIELDS.component][bind.prop]);

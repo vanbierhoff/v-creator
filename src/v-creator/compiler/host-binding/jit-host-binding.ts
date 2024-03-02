@@ -30,7 +30,8 @@ export function jitHostBinding(target: VModule, binds: Array<BindingInterface>):
     target[HOST_BIND_SYMBOL] = {
         bindings: bindings,
         bindsMeta: binds,
-        createdBinds: createdBinds
+        createdBinds: createdBinds,
+        values: {}
     };
     target[MOD_FIELDS.buildedTemplate] =
         `<${target[MOD_FIELDS.selector]} ${createdBinds.style}" ${createdBinds.class}"> ${target[MOD_FIELDS.template]} </${target[MOD_FIELDS.selector]}> `;
@@ -39,7 +40,7 @@ export function jitHostBinding(target: VModule, binds: Array<BindingInterface>):
 }
 
 export const getBindString = (type: 'style' | 'class', bind: [string, string], accumulator: string,
-                       target: any, bindProp: string) => {
+                              target: any, bindProp: string) => {
     if (type === 'class') {
         return `${accumulator}${bind[1]} `;
     }

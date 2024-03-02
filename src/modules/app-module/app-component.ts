@@ -7,6 +7,8 @@ class AppComponent {
     constructor() {
         setTimeout(() => {
             this.justBindings = 'red';
+            console.log(this.justBindings)
+            console.log(this)
         }, 5000);
     }
 
